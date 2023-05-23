@@ -14,12 +14,17 @@
     <% } %>
     <form action="/add" method="post">
       <input type="text" name="task" placeholder="Add a new task" required>
+      <input type="date" id="start" name="date"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
+
       <button type="submit">Add Task</button>
     </form>
     <ul class="tasks">
       <% tasks.forEach(function(task) { %>
         <li>
           <span><%= task.task %></span>
+          <span><%= task.date %></span>
           <form action="/delete/<%= task.id %>" method="post" class="delete-form">
             <button type="submit">Delete</button>
           </form>
